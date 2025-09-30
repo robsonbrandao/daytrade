@@ -11,10 +11,10 @@ Deploy de App Para Day Trade Analytics em Tempo Real com Agentes de IA, Groq, De
 
 **Instale o Anaconda Python no seu computador. Links de download para instalação:**
 
-https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Windows-x86_64.exe (Windows)
-https://repo.anaconda.com/archive/Anaconda3-2024.10-1-MacOSX-arm64.pkg   (MacOS Apple Silicon)
-https://repo.anaconda.com/archive/Anaconda3-2024.10-1-MacOSX-x86_64.pkg  (MacOS Intel)
-https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Linux-x86_64.sh    (Qualquer Distribuição Linux)
+* https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Windows-x86_64.exe (Windows)
+* https://repo.anaconda.com/archive/Anaconda3-2024.10-1-MacOSX-arm64.pkg   (MacOS Apple Silicon)
+* https://repo.anaconda.com/archive/Anaconda3-2024.10-1-MacOSX-x86_64.pkg  (MacOS Intel)
+* https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Linux-x86_64.sh    (Qualquer Distribuição Linux)
 
 **Abra o terminal ou prompt de comando, navegue até a pasta com os arquivos e execute o comando abaixo para criar um ambiente virtual:**
 
