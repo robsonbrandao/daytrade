@@ -106,13 +106,13 @@ def ins_plot_volume(hist, ticker):
 # Agentes de IA 
 ins_agente_web_search = Agent(name="Insider Agente Web Search",
                               role="Fazer busca na web",
-                              model=Groq(id="deepseek-r1-distill-llama-70b"),
+                              model=Groq(id="deepseek-r1-distill-llama-70b-specdec"),
                               tools=[DuckDuckGo()],
                               instructions=["Sempre inclua as fontes"],
                               show_tool_calls=True, markdown=True)
 
 ins_agente_financeiro = Agent(name="Insider Agente Financeiro",
-                              model=Groq(id="deepseek-r1-distill-llama-70b"),
+                              model=Groq(id="deepseek-r1-distill-llama-70b-specdec"),
                               tools=[YFinanceTools(stock_price=True,
                                                    analyst_recommendations=True,
                                                    stock_fundamentals=True,
