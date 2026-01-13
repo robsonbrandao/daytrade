@@ -103,16 +103,19 @@ def ins_plot_volume(hist, ticker):
 
 ########## Agentes de IA ##########
 
+# Modelo escolhido para substituição (Llama 3.3 é o mais potente atual da Groq)
+MODEL_ID = "llama-3.3-70b-versatile"
+
 # Agentes de IA 
 ins_agente_web_search = Agent(name="Insider Agente Web Search",
                               role="Fazer busca na web",
-                              model=Groq(id="deepseek-r1-distill-llama-70b-specdec"),
+                              model=Groq(id=MODEL_ID), # Alterado para o modelo suportado
                               tools=[DuckDuckGo()],
                               instructions=["Sempre inclua as fontes"],
                               show_tool_calls=True, markdown=True)
 
 ins_agente_financeiro = Agent(name="Insider Agente Financeiro",
-                              model=Groq(id="deepseek-r1-distill-llama-70b-specdec"),
+                              model=Groq(id=MODEL_ID), # Alterado para o modelo suportado
                               tools=[YFinanceTools(stock_price=True,
                                                    analyst_recommendations=True,
                                                    stock_fundamentals=True,
@@ -121,7 +124,7 @@ ins_agente_financeiro = Agent(name="Insider Agente Financeiro",
                               show_tool_calls=True, markdown=True)
 
 multi_ai_agent = Agent(team=[ins_agente_web_search, ins_agente_financeiro],
-                       model=Groq(id="llama-3.3-70b-versatile"),
+                       model=Groq(id=MODEL_ID),
                        instructions=["Sempre inclua as fontes", "Use tabelas para mostrar os dados"],
                        show_tool_calls=True, markdown=True)
 
