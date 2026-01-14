@@ -70,3 +70,13 @@ urllib3==2.3.0
 watchdog==6.0.0
 wheel==0.45.1
 yfinance==0.2.54
+streamlit
+yfinance
+plotly
+phidata
+python-dotenv
+duckduckgo-search
+openai
+pandas
+numpy
+requests
