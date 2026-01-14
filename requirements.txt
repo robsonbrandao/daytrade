@@ -80,3 +80,4 @@ openai
 pandas
 numpy
 requests
+requests_cache
