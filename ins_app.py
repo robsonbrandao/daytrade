@@ -15,6 +15,9 @@ from phi.model.openai import OpenAIChat
 from phi.tools.yfinance import YFinanceTools
 from phi.tools.duckduckgo import DuckDuckGo
 from dotenv import load_dotenv
+import requests_cache
+import requests
+from requests import Session
 
 # Carrega o arquivo de variáveis de ambiente
 load_dotenv()
@@ -24,13 +27,20 @@ openai_api_key = os.getenv("OPENAI_API_KEY")
 
 ########## Analytics (Mantido igual) ##########
 
+import requests_cache
+
 @st.cache_data
 def ins_extrai_dados(ticker, period="6mo"):
-    stock = yf.Ticker(ticker)
+    # Cria uma sessão que salva os dados em um arquivo .sqlite por 24 horas
+    session = requests_cache.CachedSession('yfinance.cache', expire_after=86400)
+    session.headers.update({'User-Agent': 'Mozilla/5.0...'}) # Mesmo user-agent de cima
+
+    stock = yf.Ticker(ticker, session=session)
     hist = stock.history(period=period)
+    
     hist.reset_index(inplace=True)
     return hist
-
+    
 def ins_plot_stock_price(hist, ticker):
     fig = px.line(hist, x="Date", y="Close", title=f"{ticker} Preços das Ações (Últimos 6 Meses)", markers=True)
     st.plotly_chart(fig)
